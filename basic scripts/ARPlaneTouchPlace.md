@@ -1,5 +1,5 @@
 변수선언   
-'''   
+```cs   
     public GameObject obj;
 
     ARRaycastManager arRaycastManager;
@@ -14,4 +14,4 @@
     public Camera ARCam;
     public GameObject ARIndicator;
 
-'''
+```
