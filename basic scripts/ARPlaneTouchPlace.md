@@ -1,5 +1,5 @@
 변수선언   
-''' 
+'''   
     public GameObject obj;
 
     ARRaycastManager arRaycastManager;
