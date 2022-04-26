@@ -11,7 +11,7 @@ public class ReadQRCode : MonoBehaviour
     public ARCameraManager CameraManager;
     public Text text;
 
-    // Update is called once per frame
+
     void Update()
     {
         if(CameraManager.TryAcquireLatestCpuImage(out XRCpuImage image))
@@ -38,7 +38,7 @@ public class ReadQRCode : MonoBehaviour
                 if(result != null)
                 {
                     text.text = result.Text;
-                    //instantiate touch => object »ý¼º
+                    //instantiate touch => object ï¿½ï¿½ï¿½ï¿½
                 }
 
 

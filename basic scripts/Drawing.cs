@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.
+using UnityEngine.XR.ARSubsystems;
 
 public class Drawing : MonoBehaviour
 {
@@ -12,13 +12,13 @@ public class Drawing : MonoBehaviour
     private LineRenderer curLine;
 
     private Vector3 PrevPos = Vector3.zero;
-    // Start is called before the first frame update
+
     void Start()
     {
         
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         Vector3 mousePos = cam.ScreenToWorldPoint(

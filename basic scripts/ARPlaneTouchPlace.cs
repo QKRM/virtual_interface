@@ -20,17 +20,15 @@ public class ARPlaneTouchPlace : MonoBehaviour
     public Camera ARCam;
     public GameObject ARIndicator;
 
-    // Start is called before the first frame update
     void Start()
     {
         arRaycastManager = GetComponent<ARRaycastManager>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         var screenCenter = ARCam.ViewportToScreenPoint(new Vector3(0.5f, 0.5f));
-        if(arRaycastManager.Raycast(screenCenter, centerHits, TrackableType.All)) //indicator 생성
+        if(arRaycastManager.Raycast(screenCenter, centerHits, TrackableType.All))
         {
             Pose hitPos = centerHits[0].pose;
 
@@ -42,19 +40,19 @@ public class ARPlaneTouchPlace : MonoBehaviour
             ARIndicator.transform.SetPositionAndRotation(hitPos.position, hitPos.rotation);
         }
 
-        if(Input.touchCount > 0) // 터치되면 물체 생성
+        if(Input.touchCount > 0)
         {
             touchPos = Input.GetTouch(0).position;
-            if(arRaycastManager.Raycast(touchPos, hits,TrackableType.PlaneWithinPolygon)) //평면이 부딪혔으면
+            if(arRaycastManager.Raycast(touchPos, hits,TrackableType.PlaneWithinPolygon))
             {
                 var hitPos = hits[0].pose;
 
-                if (!isSpawned) //안돼있으면 생성
+                if (!isSpawned)
                 {
                     spawnedObj = Instantiate(obj, hitPos.position, hitPos.rotation);
                     isSpawned = true;
                 }
-                else // 돼있으면 위치 바꾸기
+                else
                 {
                     spawnedObj.transform.position = hitPos.position;
                 }

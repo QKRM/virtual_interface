@@ -19,9 +19,6 @@ public class MultipleImageTrackingManager : MonoBehaviour
             spawnedObjs.Add(prefab.name, clone);
             clone.SetActive(false);
         }
-        //첫번째 루프 prefab은 objs[0]
-        //두번째 루프 prefab은 objs[1]
-        //세번째 루프 prefab은 objs[2]...
     }
 
     private void OnEnable()
@@ -52,7 +49,7 @@ public class MultipleImageTrackingManager : MonoBehaviour
 
     void UpdateImage(ARTrackedImage trackedImage)
     {
-        //string name = trackedImage.referenceImage.name;
+        string name = trackedImage.referenceImage.name;
         GameObject trackedObject = spawnedObjs[trackedImage.referenceImage.name];
 
         if(trackedImage.trackingState == TrackingState.Tracking)
@@ -67,7 +64,6 @@ public class MultipleImageTrackingManager : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
         
